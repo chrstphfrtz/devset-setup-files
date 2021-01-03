@@ -1,6 +1,6 @@
 [general]
 name = "cmake"
-versions = ["3.19.{0-2}"]
+versions = ["3.19.2", "3.19.{0-2}"]
 dependencies = ["make"]
 
 [install]
