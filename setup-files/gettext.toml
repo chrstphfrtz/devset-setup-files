@@ -1,0 +1,14 @@
+[general]
+name = "gettext"
+versions = ["0.21", "0.20", "0.20.{1-2}"]
+dependencies = []
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/gettext/gettext-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf gettext-$VERSION.tar.gz"
+
+[unix]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/gettext-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/gettext/"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/gettext-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/gettext-$VERSION && make install"
+step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/gettext/bin/* $DEVSET_ENVIRONMENT_BIN"
