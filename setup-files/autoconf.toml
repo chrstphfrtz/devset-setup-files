@@ -1,0 +1,17 @@
+[general]
+name = "autoconf"
+versions = ["2.70", "2.{10-70}"]
+dependencies = []
+
+[user]
+system_install = ["m4"]
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/autoconf/autoconf-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf autoconf-$VERSION.tar.gz"
+
+[unix]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/autoconf/"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && make install"
+step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/* $DEVSET_ENVIRONMENT_BIN"
