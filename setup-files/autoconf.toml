@@ -1,7 +1,7 @@
 [general]
 name = "autoconf"
-versions = ["2.70", "2.{10-70}"]
-dependencies = []
+versions = ["2.70", "2.{52-70}", "2.50", "2.{10-13}"]
+dependencies = ["perl"]
 
 [user]
 system_install = ["m4"]
@@ -14,4 +14,5 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf autoconf-$VERSION.tar.gz"
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/autoconf/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && make install"
-step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/* $DEVSET_ENVIRONMENT_BIN"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/* $DEVSET_ENVIRONMENT_BIN"
