@@ -5,6 +5,7 @@ dependencies = ["perl"]
 
 [user]
 system_install = ["m4"]
+bootstrap = false
 
 [download]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/autoconf/autoconf-$VERSION.tar.gz"
