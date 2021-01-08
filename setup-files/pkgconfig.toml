@@ -1,0 +1,19 @@
+[general]
+name = "pkgconfig"
+versions = ["0.29.2","0.29.{1-2}","0.{19-29}","0.27.1","0.18.1"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://pkg-config.freedesktop.org/releases/pkg-config-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf pkg-config-$VERSION.tar.gz"
+
+[unix]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/pkg-config-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/ --with-internal-glib"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/pkg-config-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/pkg-config-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/pkg-config-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/bin/* $DEVSET_ENVIRONMENT_BIN"
