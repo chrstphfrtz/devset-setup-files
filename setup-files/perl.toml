@@ -1,0 +1,19 @@
+[general]
+name = "perl"
+versions = ["5.32.0","5.33.{0-5}","5.32.0","5.31.{0-11}","5.30.{0-3}","5.29.{0-10}","5.28.{0-3}","5.27.{0-11}","5.26.{0-3}","5.25.{0-12}","5.24.{0-4}","5.23.{0-9}","5.22.{0-4}","5.21.{0-11}","5.20.{0-3}","5.19.{0-11}","5.18.{0-4}","5.17.{0-11}","5.16.{0-3}","5.15.{0-9}","5.14.{0-4}","5.13.{0-11}","5.12.{0-5}","5.11.{0-5}","5.10.{0-1}","5.9.{0-5}","5.8.{0-9}","5.7.{0-3}","5.6.{0-2}"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://www.cpan.org/src/5.0/perl-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf perl-$VERSION.tar.gz"
+
+[unix]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/perl-$VERSION && ./Configure -des -Dprefix=$DEVSET_ENVIRONMENT_INSTALLATION/perl/ -Dcc=gcc"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/perl-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/perl-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/perl-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/perl/bin/* $DEVSET_ENVIRONMENT_BIN"
