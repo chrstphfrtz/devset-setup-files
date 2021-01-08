@@ -1,7 +1,7 @@
 [general]
 name = "autoconf"
-versions = ["2.70", "2.{52-70}", "2.50", "2.{10-13}"]
-dependencies = ["perl"]
+versions = ["2.70","2.{52-70}","2.50","2.{10-13}"]
+dependencies = ["make","perl"]
 
 [user]
 system_install = ["m4"]

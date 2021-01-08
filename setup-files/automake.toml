@@ -1,7 +1,11 @@
 [general]
 name = "automake"
-versions = ["1.16.3", "1.16.{1-3}", "1.16"]
-dependencies = ["autoconf"]
+versions = ["1.16.3","1.16.{1-3}","1.{2-16}","1.15.1","1.14.1","1.13.{1-4}","1.12.{1-6}","1.11.{1-6}","1.10.{1-3}","1.9.{1-6}","1.8.{1-5}","1.7.{1-9}","1.6.{1-3}","1.0"]
+dependencies = ["autoconf","make","perl"]
+
+[user]
+system_install = []
+bootstrap = false
 
 [download]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/automake/automake-$VERSION.tar.gz"
@@ -11,4 +15,5 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf automake-$VERSION.tar.gz"
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/automake/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && make install"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION"
 step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/automake/bin/* $DEVSET_ENVIRONMENT_BIN"
