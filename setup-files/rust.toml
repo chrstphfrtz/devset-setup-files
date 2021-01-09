@@ -1,0 +1,18 @@
+[general]
+name = "rust"
+versions = ["1.49.0","1.{0-49}.0","1.{43-45}.1","1.45.2","1.41.1","1.34.{1-2}","1.{29-31}.1","1.29.2","1.27.{1-2}","1.26.{1-2}","1.24.1","1.22.1","1.15.1","1.12.1","0.{1-10}"]
+dependencies = []
+
+[user]
+system_install = []
+bootstrap = false 
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -o rustup.sh https://sh.rustup.rs"
+
+[unix]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup && sh rustup.sh --no-modify-path --default-toolchain $VERSION -y"
+step2 = "if [ -e $HOME/.bash_profile ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.bash_profile; fi"
+step3 = "if [ -e $HOME/.profile ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.profile; fi"
+step4 = "if [ -e $HOME/.zshrc ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.zhsrc; fi"
+STep5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cargo/bin/* $DEVSET_ENVIRONMENT_BIN"
