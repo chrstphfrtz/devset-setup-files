@@ -1,7 +1,7 @@
 [general]
 name = "neovim"
 versions = ["0.4.4","0.4.{0-4}","0.3.{0-8}","0.2.{0-2}","0.1.{0-7}"]
-dependencies = ["autoconf","automake","cmake","gcc","libtool","make","pkgconfig"]
+dependencies = ["autoconf","automake","cmake","gcc","libtool","make","pkg-config"]
 
 [user]
 system_install = ["unzip","m4"]
