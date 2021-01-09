@@ -1,7 +1,7 @@
 [general]
 name = "which"
-versions = ["2.21", "2.{0-21}"]
-dependencies = ["make"]
+versions = ["2.21","2.{0-21}"]
+dependencies = ["gcc","make"]
 
 [user]
 system_install = []
