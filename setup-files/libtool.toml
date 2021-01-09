@@ -4,7 +4,7 @@ versions = ["2.4.6","2.4.{2-6}","2.4","2.2.10","2.2.8","2.2.4","2.2.2","2.2","1.
 dependencies = []
 
 [user]
-system_install = ["m4"]
+system_install = []
 bootstrap = false
 
 [download]
