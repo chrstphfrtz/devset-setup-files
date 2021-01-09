@@ -1,10 +1,11 @@
 [general]
 name = "libtool"
-versions = ["2.4.6", "2.4.{0-6}"]
+versions = ["2.4.6","2.4.{2-6}","2.4","2.2.10","2.2.8","2.2.4","2.2.2","2.2","1.{0-5}","1.5.26","1.5.24","1.5.22","1.5.20","1.5.18","1.5.16","1.5.14","1.5.12","1.5.10","1.5.8","1.5.6","1.5.4","1.5.2","1.4.{1-3}","1.3.{2-5}"]
 dependencies = []
 
 [user]
 system_install = ["m4"]
+bootstrap = false
 
 [download]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirror.kumi.systems/gnu/libtool/libtool-$VERSION.tar.gz"
@@ -13,5 +14,6 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf libtool-$VERSION.tar.gz"
 [unix]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/libtool/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && make -j$(nproc)"
-step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && make install"
-step3 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/* $DEVSET_ENVIRONMENT_BIN"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/* $DEVSET_ENVIRONMENT_BIN"
