@@ -12,8 +12,8 @@ step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -o rustup.sh https://sh.rustup.rs
 
 [unix]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup && sh rustup.sh --no-modify-path --default-toolchain none -y"
-step2 = "if [ -e $HOME/.bash_profile ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.bash_profile; fi"
-step3 = "if [ -e $HOME/.profile ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.profile; fi"
-step4 = "if [ -e $HOME/.zshrc ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.zhsrc; fi"
-step5 = "rustup default $VERSION"
-STep6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cargo/bin/* $DEVSET_ENVIRONMENT_BIN"
+step2 = "source $DEVSET_ENVIRONMENT_INSTALLATION/cargo/env && rustup default $VERSION"
+step3 = "if [ -e $HOME/.bash_profile ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.bash_profile; fi"
+step4 = "if [ -e $HOME/.profile ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.profile; fi"
+step5 = "if [ -e $HOME/.zshrc ]; then echo 'export CARGO_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/cargo RUSTUP_HOME=$DEVSET_ENVIRONMENT_INSTALLATION/rustup' >> $HOME/.zhsrc; fi"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cargo/bin/* $DEVSET_ENVIRONMENT_BIN"
