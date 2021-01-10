@@ -22,4 +22,4 @@ step7 = "if [ -e $HOME/.profile ]; then echo 'export LD_LIBRARY_PATH=$DEVSET_ENV
 step8 = "if [ -e $HOME/.zshrc ]; then echo 'export LD_LIBRARY_PATH=$DEVSET_ENVIRONMENT_INSTALLATION/gcc/lib64:$LD_LIBRARY_PATH' >> $HOME/.zhsrc; fi"
 step9 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/gcc-build && rm -rf $DEVSET_ENVIRONMENT_SOURCE/gcc-$VERSION"
 step10 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/gcc/bin/* $DEVSET_ENVIRONMENT_BIN"
-step11 = "echo ''; echo 'Please restart your terminal (session) for the environment variables to get updated.'; echo ''"
+step11 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/gcc/bin/gcc $DEVSET_ENVIRONMENT_BIN/cc"
