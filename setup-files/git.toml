@@ -1,0 +1,19 @@
+[general]
+name = "git"
+versions = ["2.30.0","2.29.{0-2}","2.{27-28}.0","2.26.{0-2}","2.25.{0-4}","2.24.{0-3}","2.23.{0-3}","2.22.{0-4}","2.21.{0-3}","2.20.{0-4}","2.19.{0-5}","2.18.{0-4}","2.17.{0-5}","2.16.{0-6}","2.15.{0-4}","2.14.{0-6}","2.13.{0-7}","2.12.{0-5}","2.11.{0-4}","2.10.{0-5}","2.9.{0-5}","2.8.{0-6}","2.7.{0-6}","2.6.{0-7}","2.5.{0-6}","2.4.{0-12}","2.3.{0-10}","2.2.{0-3}","2.1.{0-4}","2.0.{0-5}","1.9.{0-5}","1.8.{0-5}"]
+dependencies = ["gcc","make","zlib"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf git-$VERSION.tar.gz"
+
+[unix]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && CPPFLAGS="-I $DEVSET_ENVIRONMENT_INSTALLATION/zlib/include" LDFLAGS="-L$DEVSET_ENVIRONMENT_INSTALLATION/zlib/lib/" ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/git/"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION"
+step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/* $DEVSET_ENVIRONMENT_BIN"
