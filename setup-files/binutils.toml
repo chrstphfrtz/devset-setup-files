@@ -11,7 +11,7 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/binutils/binutils-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf binutils-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/binutils/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION && make install"

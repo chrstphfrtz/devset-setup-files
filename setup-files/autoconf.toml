@@ -11,7 +11,7 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/autoconf/autoconf-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf autoconf-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/autoconf/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/autoconf-$VERSION && make install"

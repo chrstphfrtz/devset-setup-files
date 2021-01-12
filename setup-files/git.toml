@@ -11,7 +11,7 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf git-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && CPPFLAGS='-I $DEVSET_ENVIRONMENT_INSTALLATION/zlib/include' LDFLAGS='-L$DEVSET_ENVIRONMENT_INSTALLATION/zlib/lib/' ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/git/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make install"

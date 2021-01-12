@@ -11,7 +11,7 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/automake/automake-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf automake-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/automake/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && make install"

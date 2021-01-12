@@ -11,7 +11,7 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://github.com/Kitware/CMake/releases/download/v$VERSION/cmake-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf cmake-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/cmake-$VERSION && ./bootstrap --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/cmake/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/cmake-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/cmake-$VERSION && make install"
