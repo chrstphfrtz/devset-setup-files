@@ -11,9 +11,10 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirror.kumi.systems/gnu/libtool/libtool-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf libtool-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/libtool/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION"
-step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/* $DEVSET_ENVIRONMENT_BIN"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/libtool $DEVSET_ENVIRONMENT_BIN"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/libtoolize $DEVSET_ENVIRONMENT_BIN"

@@ -11,9 +11,9 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://carlowood.github.io/which/which-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf which-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/which-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/which/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/which-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/which-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/which-$VERSION"
-step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/which/bin/* $DEVSET_ENVIRONMENT_BIN"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/which/bin/which $DEVSET_ENVIRONMENT_BIN"

@@ -11,9 +11,9 @@ bootstrap = true
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/make/make-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf make-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/make/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION"
-step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/make/bin/* $DEVSET_ENVIRONMENT_BIN"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/make/bin/make $DEVSET_ENVIRONMENT_BIN"
