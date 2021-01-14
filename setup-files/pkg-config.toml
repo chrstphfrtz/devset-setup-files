@@ -20,4 +20,4 @@ step5 = "if [ -e $HOME/.profile ]; then echo 'export PKG_CONFIG_PATH=/usr/local/
 step6 = "if [ -e $HOME/.zshrc ]; then echo 'export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH' >> $HOME/.zhsrc; fi"
 step7 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/pkg-config-$VERSION"
 step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/bin/pkg-config $DEVSET_ENVIRONMENT_BIN"
-step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/bin/x86_64-apple-darwin20.2.0-pkg-config $DEVSET_ENVIRONMENT_BIN"
+step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/bin/x86_64-apple-darwin20.2.0-pkg-config $DEVSET_ENVIRONMENT_BIN"
