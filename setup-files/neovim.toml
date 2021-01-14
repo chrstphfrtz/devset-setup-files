@@ -11,8 +11,8 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -L -o neovim-$VERSION.tar.gz https://github.com/neovim/neovim/archive/v$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf neovim-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/neovim-$VERSION && make -j$(nproc) CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$DEVSET_ENVIRONMENT_INSTALLATION/neovim/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/neovim-$VERSION && make install"
 step3 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/neovim-$VERSION"
-step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/neovim/bin/* $DEVSET_ENVIRONMENT_BIN"
+step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/neovim/bin/nvim $DEVSET_ENVIRONMENT_BIN"

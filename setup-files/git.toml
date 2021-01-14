@@ -11,9 +11,15 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf git-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && CPPFLAGS='-I $DEVSET_ENVIRONMENT_INSTALLATION/zlib/include' LDFLAGS='-L$DEVSET_ENVIRONMENT_INSTALLATION/zlib/lib/' ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/git/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION"
-step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/* $DEVSET_ENVIRONMENT_BIN"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/git $DEVSET_ENVIRONMENT_BIN"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/git-cvsserver $DEVSET_ENVIRONMENT_BIN"
+step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/gitk $DEVSET_ENVIRONMENT_BIN"
+step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/git-receive-pack $DEVSET_ENVIRONMENT_BIN"
+step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/git-shell $DEVSET_ENVIRONMENT_BIN"
+step10 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/git-upload-archive $DEVSET_ENVIRONMENT_BIN"
+step11 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/git/bin/git-upload-pack $DEVSET_ENVIRONMENT_BIN"

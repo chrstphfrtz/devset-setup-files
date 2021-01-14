@@ -11,7 +11,7 @@ bootstrap = false
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://zlib.net/fossils/zlib-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf zlib-$VERSION.tar.gz"
 
-[unix]
+[install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/zlib-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/zlib"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/zlib-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/zlib-$VERSION && make install"
