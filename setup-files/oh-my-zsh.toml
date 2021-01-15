@@ -12,6 +12,6 @@ step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -L -o oh-my-zsh.zip https://githu
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && unzip oh-my-zsh.zip && mv ohmyzsh-master/ oh-my-zsh/"
 
 [install]
-step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh && ./tools/install.sh"
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh && ./tools/install.sh --unattended"
 step2 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh"
 step3 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/dummy-executable $DEVSET_ENVIRONMENT_BIN/oh-my-zsh"
