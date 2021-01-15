@@ -9,7 +9,7 @@ bootstrap = false
 
 [download]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
-step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf Python-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf Python-$VERSION.tgz"
 
 [install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/python/"
