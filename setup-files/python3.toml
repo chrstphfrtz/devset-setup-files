@@ -14,7 +14,7 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf Python-$VERSION.tgz"
 [install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/python/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && make -j$(nproc)"
-step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/python-$VERSION && make install"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/2to3 $DEVSET_ENVIRONMENT_BIN"
 step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/idle3 $DEVSET_ENVIRONMENT_BIN"
