@@ -8,7 +8,7 @@ system_install = ["guile"]
 bootstrap = false
 
 [download]
-step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL curl -O https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf Python-$VERSION.tar.gz"
 
 [install]
