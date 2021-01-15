@@ -1,0 +1,24 @@
+[general]
+name = "python3"
+versions = ["3.9.1","3.9.{0-1}","3.8.{0-7}","3.7.{0-9}","3.6.{0-12}","3.5.{0-10}","3.4.{0-10}","3.3.{0-7}","3.2.{1-6}","3.1.{1-5}","3.0.1","3.{0-2}"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = ["guile"]
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf Python-$VERSION.tgz"
+
+[install]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/python/"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/Python-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/2to3 $DEVSET_ENVIRONMENT_BIN"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/idle3 $DEVSET_ENVIRONMENT_BIN"
+step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/pip3 $DEVSET_ENVIRONMENT_BIN"
+step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/pydoc3 $DEVSET_ENVIRONMENT_BIN"
+step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/python3 $DEVSET_ENVIRONMENT_BIN"
+step10 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/python/bin/python3-config $DEVSET_ENVIRONMENT_BIN"
