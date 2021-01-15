@@ -1,0 +1,29 @@
+[general]
+name = "ncurses"
+versions = ["6.2","6.{0-2}","5.{0-9}","4.2"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/ncurses/ncurses-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf ncurses-$VERSION.tar.gz"
+
+[install]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/ncurses-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/ncurses CXXFLAGS='-fPIC' CFLAGS='-fPIC'"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/ncurses-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/ncurses-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/ncurses-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/captoinfo $DEVSET_ENVIRONMENT_BIN"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/clear $DEVSET_ENVIRONMENT_BIN"
+step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/infocmp $DEVSET_ENVIRONMENT_BIN"
+step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/infotocap $DEVSET_ENVIRONMENT_BIN"
+step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/ncurses6-config $DEVSET_ENVIRONMENT_BIN"
+step10 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/reset $DEVSET_ENVIRONMENT_BIN"
+step11 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/tabs $DEVSET_ENVIRONMENT_BIN"
+step12 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/tic $DEVSET_ENVIRONMENT_BIN"
+step13 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/toe $DEVSET_ENVIRONMENT_BIN"
+step14 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/tput $DEVSET_ENVIRONMENT_BIN"
+step15 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/ncurses/bin/tset $DEVSET_ENVIRONMENT_BIN"
