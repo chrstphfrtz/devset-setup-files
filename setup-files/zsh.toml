@@ -1,0 +1,19 @@
+[general]
+name = "zsh"
+versions = ["5.8","5.{1-8}","5.7.1","5.6.{1-2}","5.5.1","5.4.{1-2}","5.3.1","5.1.1","5.0.{0-8}","4.2.{0-7}","4.0.{1-2}","4.0.4","4.0.{6-7}","4.0.9","3.1.{7-9}","3.0.8"]
+dependencies = ["gcc","make","ncurses"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -L -o zsh-$VERSION.tar.xz https://sourceforge.net/projects/zsh/files/zsh/$VERSION/zsh-$VERSION.tar.xz/download"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvf zsh-$VERSION.tar.xz"
+
+[install]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/zsh CPPFLAGS='-I$DEVSET_ENVIRONMENT_INSTALLATION/ncurses/include' LDFLAGS='-L$DEVSET_ENVIRONMENT_INSTALLATION/zsh/lcd $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION && make installib'"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/zsh/bin/zsh $DEVSET_ENVIRONMENT_BIN"
