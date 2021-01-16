@@ -47,7 +47,7 @@ step32 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/perl/bin/streamzip $DEVSET_ENVI
 step33 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/perl/bin/xsubpp $DEVSET_ENVIRONMENT_BIN"
 step34 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/perl/bin/zipdetails $DEVSET_ENVIRONMENT_BIN"
 
-[install]
+[uninstall]
 step1 = "rm -f $DEVSET_ENVIRONMENT_BIN/corelist"
 step2 = "rm -f $DEVSET_ENVIRONMENT_BIN/cpan"
 step3 = "rm -f $DEVSET_ENVIRONMENT_BIN/enc2xs"
