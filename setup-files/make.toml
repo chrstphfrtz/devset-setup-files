@@ -15,5 +15,9 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf make-$VERSION.tar.gz"
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/make/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && make install"
-step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION*"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/make/bin/make $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/make"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/make"
