@@ -1,7 +1,7 @@
 [general]
 name = "binutils"
 versions = ["2.35.1", "2.{7-35}", "2.33.1", "2.31.1", "2.{28-29}.1","2.{25-26}.1","2.23.1","2.{20-21}.1","2.19.1","2.16.1","2.13.{1-2}","2.{8-12}.1"]
-dependencies = ["gcc", "make"]
+dependencies = ["make"]
 
 [user]
 system_install = []
