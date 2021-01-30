@@ -1,7 +1,7 @@
 [general]
 name = "make"
 versions = ["4.3", "4.{0-3}", "3.{75-82}"]
-dependencies = ["gcc"]
+dependencies = []
 
 [user]
 system_install = []
