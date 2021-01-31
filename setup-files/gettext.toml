@@ -2,7 +2,7 @@
 name = "gettext"
 versions =
 ["0.21","0.{13-20}","0.20.{1-2}","0.19.{1-8}","0.18.{1-3}","0.16.1","0.14.{1-6}","0.13.1","0.12.1","0.11.5","0.11.2","0.10.40"]
-dependencies = ["gcc","gettext","m4","make"]
+dependencies = ["gcc","m4","make"]
 
 [user]
 system_install = []
