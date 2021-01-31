@@ -1,6 +1,6 @@
 [general]
-name = "make"
-versions = ["4.3", "4.{0-3}", "3.{75-82}"]
+name = "gcc-make"
+versions = []
 dependencies = []
 
 [user]
@@ -8,16 +8,10 @@ system_install = []
 bootstrap = true 
 
 [download]
-step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/make/make-$VERSION.tar.gz"
-step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf make-$VERSION.tar.gz"
+step1 = ""
 
 [install]
-step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/make/"
-step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && make -j$(nproc)"
-step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION && make install"
-step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/make-$VERSION*"
-step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/make/bin/make $DEVSET_ENVIRONMENT_BIN"
+step1 = ""
 
 [uninstall]
-step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/make"
-step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/make"
+step1 = ""
