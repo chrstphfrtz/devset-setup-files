@@ -17,6 +17,9 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/automake-$VERSION"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/automake/bin/aclocal $DEVSET_ENVIRONMENT_BIN"
-step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/automake/bin/aclocal-1.16 $DEVSET_ENVIRONMENT_BIN"
-step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/automake/bin/automake $DEVSET_ENVIRONMENT_BIN"
-step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/automake/bin/automake-1.16 $DEVSET_ENVIRONMENT_BIN"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/automake/bin/automake $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/automake"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/aclocal"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/automake"

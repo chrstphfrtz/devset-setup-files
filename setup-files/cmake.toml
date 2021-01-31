@@ -20,3 +20,10 @@ step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cmake/bin/ccmake $DEVSET_ENVIRON
 step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cmake/bin/cmake $DEVSET_ENVIRONMENT_BIN"
 step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cmake/bin/cpack $DEVSET_ENVIRONMENT_BIN"
 step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/cmake/bin/ctest $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/cmake"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ccmake"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/cmake"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_BIN/cpack"
+step5 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ctest"
