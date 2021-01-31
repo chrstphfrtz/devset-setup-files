@@ -32,6 +32,7 @@ step17 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/readelf $DEVSET_EN
 step18 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/size $DEVSET_ENVIRONMENT_BIN"
 step19 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/strings $DEVSET_ENVIRONMENT_BIN"
 step20 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/strip $DEVSET_ENVIRONMENT_BIN"
+step21 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/dummy-executable $DEVSET_ENVIRONMENT_BIN/binutils"
 
 [uninstall]
 step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/binutils"
