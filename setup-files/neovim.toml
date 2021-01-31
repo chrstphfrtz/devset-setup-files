@@ -17,3 +17,8 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/neovim-$VERSION && make install"
 step3 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/neovim-$VERSION"
 step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/neovim/bin/nvim $DEVSET_ENVIRONMENT_BIN"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/neovim/bin/nvim $DEVSET_ENVIRONMENT_BIN/neovim"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/neovim"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/nvim"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/neovim"
