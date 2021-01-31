@@ -1,10 +1,10 @@
 [general]
 name = "autoconf"
 versions = ["2.70","2.{52-70}","2.50","2.{10-13}"]
-dependencies = ["make","perl"]
+dependencies = ["m4","make","perl"]
 
 [user]
-system_install = ["m4"]
+system_install = []
 bootstrap = false
 
 [download]
@@ -23,3 +23,13 @@ step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/autoreconf $DEVSET_
 step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/autoscan $DEVSET_ENVIRONMENT_BIN"
 step10 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/autoupdate $DEVSET_ENVIRONMENT_BIN"
 step11 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/autoconf/bin/ifnames $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/autoconf"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/autoconf"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/autoheader"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_BIN/autom4te"
+step5 = "rm -rf $DEVSET_ENVIRONMENT_BIN/autoreconf"
+step6 = "rm -rf $DEVSET_ENVIRONMENT_BIN/autoscan"
+step7 = "rm -rf $DEVSET_ENVIRONMENT_BIN/autoupdate"
+step8 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ifnames"
