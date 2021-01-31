@@ -12,7 +12,7 @@ step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirrors.edge.kernel.o
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf git-$VERSION.tar.gz"
 
 [install]
-step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && CPPFLAGS='-I $DEVSET_ENVIRONMENT_INSTALLATION/zlib/include' LDFLAGS='-L$DEVSET_ENVIRONMENT_INSTALLATION/zlib/lib/' ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/git/"
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && CPPFLAGS=\"-I$DEVSET_ENVIRONMENT_INSTALLATION/zlib/include\" LDFLAGS=\"-L$DEVSET_ENVIRONMENT_INSTALLATION/zlib/lib/\" ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/git/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/git-$VERSION*"
