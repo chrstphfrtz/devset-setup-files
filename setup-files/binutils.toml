@@ -1,7 +1,7 @@
 [general]
 name = "binutils"
 versions = ["2.35.1", "2.{7-35}", "2.33.1", "2.31.1", "2.{28-29}.1","2.{25-26}.1","2.23.1","2.{20-21}.1","2.19.1","2.16.1","2.13.{1-2}","2.{8-12}.1"]
-dependencies = ["gcc", "make"]
+dependencies = ["gcc","make"]
 
 [user]
 system_install = []
@@ -15,7 +15,7 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf binutils-$VERSION.tar.gz"
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/binutils/"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION && make install"
-step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/binutils-$VERSION*"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/addr2line $DEVSET_ENVIRONMENT_BIN"
 step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/ar $DEVSET_ENVIRONMENT_BIN"
 step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/as $DEVSET_ENVIRONMENT_BIN"
@@ -32,3 +32,24 @@ step17 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/readelf $DEVSET_EN
 step18 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/size $DEVSET_ENVIRONMENT_BIN"
 step19 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/strings $DEVSET_ENVIRONMENT_BIN"
 step20 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/binutils/bin/strip $DEVSET_ENVIRONMENT_BIN"
+step21 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/dummy-executable $DEVSET_ENVIRONMENT_BIN/binutils"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/binutils"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/addr2line"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ar"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_BIN/as"
+step5 = "rm -rf $DEVSET_ENVIRONMENT_BIN/c++filt"
+step6 = "rm -rf $DEVSET_ENVIRONMENT_BIN/elfedit"
+step7 = "rm -rf $DEVSET_ENVIRONMENT_BIN/gprof"
+step8 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ld"
+step9 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ld.bfd"
+step10 = "rm -rf $DEVSET_ENVIRONMENT_BIN/nm"
+step11 = "rm -rf $DEVSET_ENVIRONMENT_BIN/objcopy"
+step12 = "rm -rf $DEVSET_ENVIRONMENT_BIN/objdump"
+step13 = "rm -rf $DEVSET_ENVIRONMENT_BIN/ranlib"
+step14 = "rm -rf $DEVSET_ENVIRONMENT_BIN/readelf"
+step15 = "rm -rf $DEVSET_ENVIRONMENT_BIN/size"
+step16 = "rm -rf $DEVSET_ENVIRONMENT_BIN/strings"
+step17 = "rm -rf $DEVSET_ENVIRONMENT_BIN/strip"
+step18 = "rm -rf $DEVSET_ENVIRONMENT_BIN/binutils"

@@ -1,0 +1,17 @@
+[general]
+name = "gcc-make"
+versions = []
+dependencies = []
+
+[user]
+system_install = []
+bootstrap = true 
+
+[download]
+step1 = ""
+
+[install]
+step1 = ""
+
+[uninstall]
+step1 = ""

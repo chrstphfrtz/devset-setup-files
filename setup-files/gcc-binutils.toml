@@ -1,0 +1,17 @@
+[general]
+name = "gcc-binutils"
+versions = []
+dependencies = ["gcc-make"]
+
+[user]
+system_install = []
+bootstrap = false 
+
+[download]
+step1 = ""
+
+[install]
+step1 = ""
+
+[uninstall]
+step1 = ""
