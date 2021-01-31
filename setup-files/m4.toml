@@ -1,0 +1,26 @@
+[general]
+name = "m4"
+# Versions
+versions = ["1.4.18"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/m4/m4-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf m4-$VERSION.tar.gz"
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/m4-$VERSION && curl -OL https://raw.githubusercontent.com/chrstphfrtz/devset-setup-files/main/patches/m4-1.4.18.patch"
+
+[install]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/m4-$VERSION && patch -p1 -i m4-$VERSION.patch"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/m4-$VERSION && ./configure --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/m4/"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/m4-$VERSION && make -j$(nproc)"
+step4 = "cd $DEVSET_ENVIRONMENT_SOURCE/m4-$VERSION && make install"
+step5 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/m4-$VERSION*"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/m4/bin/m4 $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/m4"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/m4"
