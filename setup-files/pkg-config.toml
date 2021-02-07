@@ -19,7 +19,7 @@ step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/pkg-config-$VERSION*"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/bin/pkg-config $DEVSET_ENVIRONMENT_BIN"
 step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/bin/x86_64-unknown-linux-gnu-pkg-config $DEVSET_ENVIRONMENT_BIN"
 
-[install]
-step4 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config"
-step5 = "rm -rf $DEVSET_ENVIRONMENT_BIN/pkg-config"
-step6 = "rm -rf $DEVSET_ENVIRONMENT_BIN/x86_64-unknown-linux-gnu-pkg-config"
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/pkg-config"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/x86_64-unknown-linux-gnu-pkg-config"
