@@ -19,7 +19,7 @@ step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/libtool-$VERSION*"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/libtool $DEVSET_ENVIRONMENT_BIN"
 step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/libtool/bin/libtoolize $DEVSET_ENVIRONMENT_BIN"
 
-[install]
+[uninstall]
 step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/libtool"
 step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/libtool"
 step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/libtoolize"
