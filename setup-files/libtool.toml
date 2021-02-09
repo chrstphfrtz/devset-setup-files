@@ -8,7 +8,7 @@ system_install = []
 bootstrap = false
 
 [download]
-step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://mirror.kumi.systems/gnu/libtool/libtool-$VERSION.tar.gz"
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://ftp.gnu.org/gnu/libtool/libtool-$VERSION.tar.gz"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf libtool-$VERSION.tar.gz"
 
 [install]
