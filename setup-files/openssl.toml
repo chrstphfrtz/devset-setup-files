@@ -1,0 +1,28 @@
+[general]
+name = "openssl"
+versions = ["1.1.1j"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = []
+bootstrap = false
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://www.openssl.org/source/openssl-$VERSION.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf openssl-$VERSION.tar.gz"
+
+[install]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/openssl-$VERSION && ./config --prefix=$DEVSET_ENVIRONMENT_INSTALLATION/openssl/"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/openssl-$VERSION && make -j$(nproc)"
+step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/openssl-$VERSION && make install"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/openssl-$VERSION*"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/lib/pkgconfig/libcrypto.pc $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/lib/pkgconfig"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/lib/pkgconfig/libssl.pc $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/lib/pkgconfig"
+step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/lib/pkgconfig/openssl.pc $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/lib/pkgconfig"
+step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/bin/openssl $DEVSET_ENVIRONMENT_BIN"
+step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/bin/c_rehash $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/openssl"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/openssl"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/c_rehash"
