@@ -1,7 +1,7 @@
 [general]
 name = "openssl"
 versions = ["1.1.1j"]
-dependencies = ["gcc","make"]
+dependencies = ["gcc","make","pkg-config"]
 
 [user]
 system_install = []
