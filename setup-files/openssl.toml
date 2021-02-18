@@ -23,6 +23,9 @@ step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/bin/openssl $DEVSET_ENVI
 step9 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/openssl/bin/c_rehash $DEVSET_ENVIRONMENT_BIN"
 
 [uninstall]
-step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/openssl"
-step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/openssl"
-step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/c_rehash"
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/lib/pkgconfig/libcrypto.pc"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/lib/pkgconfig/libssl.pc"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/pkg-config/lib/pkgconfig/openssl.pc"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/openssl"
+step5 = "rm -rf $DEVSET_ENVIRONMENT_BIN/openssl"
+step6 = "rm -rf $DEVSET_ENVIRONMENT_BIN/c_rehash"
