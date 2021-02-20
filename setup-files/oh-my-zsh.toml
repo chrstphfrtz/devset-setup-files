@@ -10,7 +10,7 @@ bootstrap = false
 [download]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -L -o oh-my-zsh.zip https://github.com/ohmyzsh/ohmyzsh/archive/master.zip"
 step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && unzip oh-my-zsh.zip"
-step3 = "mv ohmyzsh-master/ oh-my-zsh/"
+step3 = "mv $DEVSET_ENVIRONMENT_SOURCE/ohmyzsh-master/ $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh/"
 
 [install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh && ./tools/install.sh --unattended"
