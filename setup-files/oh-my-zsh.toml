@@ -9,7 +9,8 @@ bootstrap = false
 
 [download]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -L -o oh-my-zsh.zip https://github.com/ohmyzsh/ohmyzsh/archive/master.zip"
-step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && unzip oh-my-zsh.zip && mv ohmyzsh-master/ oh-my-zsh/"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && unzip oh-my-zsh.zip"
+step3 = "mv ohmyzsh-master/ oh-my-zsh/"
 
 [install]
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh && ./tools/install.sh --unattended"
@@ -18,5 +19,6 @@ step3 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/dummy-executable $DEVSET_ENVIRON
 
 [uninstall]
 step1 = "rm -rf $HOME/.oh-my-zsh"
-step2 = "mv $HOME/.zshrc $HOME/.zshrc.bak"
-step3 = "mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/oh-my-zsh"
+step3 = "mv $HOME/.zshrc $HOME/.zshrc.bak"
+step4 = "mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc"
