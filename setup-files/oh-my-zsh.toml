@@ -4,7 +4,7 @@ versions = ["latest"]
 dependencies = ["zsh"]
 
 [user]
-system_install = ["unzip"]
+system_install = []
 bootstrap = false
 
 [download]
@@ -15,3 +15,8 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && unzip oh-my-zsh.zip && mv ohmyzsh-mast
 step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh && ./tools/install.sh --unattended"
 step2 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/oh-my-zsh"
 step3 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/dummy-executable $DEVSET_ENVIRONMENT_BIN/oh-my-zsh"
+
+[uninstall]
+step1 = "rm -rf $HOME/.oh-my-zsh"
+step2 = "mv $HOME/.zshrc $HOME/.zshrc.bak"
+step3 = "mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc"

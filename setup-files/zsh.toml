@@ -17,4 +17,11 @@ step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION && make -j$(nproc)"
 step3 = "cd $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION && make install"
 step4 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/zsh-$VERSION"
 step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/zsh/bin/zsh $DEVSET_ENVIRONMENT_BIN"
-step6 = "if [ -e $HOME/.bashrc ]; then echo 'export SHELL=$(which zsh)' >> $HOME/.bashrc; echo '[ -f \"$SHELL\" ] && exec \"$SHELL\" -l' >> $HOME/.bashrc; fi"
+step6 = "echo 'export SHELL=$(which zsh)' >> $HOME/.devset/.env"
+step7 = "echo '[ -f \"$SHELL\" ] && exec \"$SHELL\" -l' >> $HOME/.devset/.env"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/zsh"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/zsh"
+step3 = "sed -i '/export SHELL=$(which zsh)/d' $HOME/.devset/.env"
+step4 = "sed -i '/[ -f \"$SHELL\" ] && exec \"$SHELL\" -l/d' $HOME/.devset/.env"

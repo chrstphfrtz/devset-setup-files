@@ -1,0 +1,30 @@
+[general]
+name = "unzip"
+versions = ["6.0"]
+dependencies = ["gcc","make"]
+
+[user]
+system_install = []
+bootstrap = false 
+
+[download]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE && curl -OL https://downloads.sourceforge.net/infozip/unzip60.tar.gz"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE && tar -xvzf unzip60.tar.gz"
+
+[install]
+step1 = "cd $DEVSET_ENVIRONMENT_SOURCE/unzip60 && make -f unix/Makefile generic"
+step2 = "cd $DEVSET_ENVIRONMENT_SOURCE/unzip60 && make prefix=$DEVSET_ENVIRONMENT_INSTALLATION/unzip/ -f unix/Makefile install"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_SOURCE/unzip*"
+step4 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/unzip/bin/funzip $DEVSET_ENVIRONMENT_BIN"
+step5 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/unzip/bin/unzip $DEVSET_ENVIRONMENT_BIN"
+step6 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/unzip/bin/unzipsfx $DEVSET_ENVIRONMENT_BIN"
+step7 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/unzip/bin/zipgrep $DEVSET_ENVIRONMENT_BIN"
+step8 = "ln -s $DEVSET_ENVIRONMENT_INSTALLATION/unzip/bin/zipinfo $DEVSET_ENVIRONMENT_BIN"
+
+[uninstall]
+step1 = "rm -rf $DEVSET_ENVIRONMENT_INSTALLATION/unzip"
+step2 = "rm -rf $DEVSET_ENVIRONMENT_BIN/funzip"
+step3 = "rm -rf $DEVSET_ENVIRONMENT_BIN/unzip"
+step4 = "rm -rf $DEVSET_ENVIRONMENT_BIN/unzipsfx"
+step5 = "rm -rf $DEVSET_ENVIRONMENT_BIN/zipgrep"
+step6 = "rm -rf $DEVSET_ENVIRONMENT_BIN/zipinfo"
