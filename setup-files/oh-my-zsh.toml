@@ -1,7 +1,7 @@
 [general]
 name = "oh-my-zsh"
 versions = ["latest"]
-dependencies = ["zsh"]
+dependencies = ["unzip","zsh"]
 
 [user]
 system_install = []
